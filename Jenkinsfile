@@ -31,32 +31,32 @@ pipeline {
                 }
             }
             steps {
+                 //echo "building jar"
                 script {
-                    //echo "building jar"
                     gv.testApp()
                 }
             }
         }
         stage("build jar") {
             steps {
+                 //echo "building jar"
                 script {
-                    //echo "building jar"
                     gv.buildJar()
                 }
             }
         }
         stage("build image") {
             steps {
+                //echo "building image"
                 script {
-                    //echo "building image"
                     gv.buildImage()
                 }
             }
         }
         stage("deploy") {
             steps {
+                //echo "deploying version ${params.VERSION}"
                 script {
-                    //echo "deploying version ${params.VERSION}"
                     gv.deployApp()
                 }
             }
