@@ -26,7 +26,7 @@ pipeline {
          stage("test") {
             when{
                 expression{
-                    BRANCH_NAME == 'dev' //branch_name variable is provided out of the box. ||, && can also be added
+                    env.BRANCH_NAME == 'dev' //branch_name variable is provided out of the box. ||, && can also be added
                     params.executeTests == true
                 }
             }
