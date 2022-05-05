@@ -61,16 +61,16 @@ pipeline {
                 }
             }
         }
-        post{
-            always{
-                echo 'I will always be executed'
-            }
-            success{
-                echo 'I will always be if the build succeeded'
-            }
-            failure{
-                echo 'I will always be if the build failed'
-            }
+    }
+    post {
+        always{
+            echo 'I will always be executed'
         }
-    }   
+        success{
+            echo 'I will always be if the build succeeded'
+        }
+        failure{
+            echo 'I will always be if the build failed'
+        }
+    }
 }
