@@ -32,32 +32,32 @@ pipeline {
             }
             steps {
                 script {
-                    echo "building jar"
-                    //gv.buildJar()
+                    //echo "building jar"
+                    gv.testApp()
                 }
             }
         }
         stage("build jar") {
             steps {
                 script {
-                    echo "building jar"
-                    //gv.buildJar()
+                    //echo "building jar"
+                    gv.buildJar()
                 }
             }
         }
         stage("build image") {
             steps {
                 script {
-                    echo "building image"
-                    //gv.buildImage()
+                    //echo "building image"
+                    gv.buildImage()
                 }
             }
         }
         stage("deploy") {
             steps {
                 script {
-                    echo "deploying version ${params.VERSION}"
-                    //gv.deployApp()
+                    //echo "deploying version ${params.VERSION}"
+                    gv.deployApp()
                 }
             }
         }
