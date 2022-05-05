@@ -20,7 +20,7 @@ pipeline {
                     echo "building the docker image"
                     withCredentials([usernamePassword(credentialsId: 'docker-hub-cred', passwordVariable: 'PWD', usernameVariable: 'USER')]){
                         sh 'docker build -t 082013/demo-app:class-jma-2.0 . '
-                        sh 'docker login -u $USER -p $PWD'
+                        sh "docker login -u $USER -p $PWD"
                         sh 'docker push 082013/demo-app:class-jma-2.0'
                     }
                 }
