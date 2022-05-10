@@ -13,6 +13,7 @@ pipeline {
             }
          }
         }
+
         stage("build jar") {
             steps {
                 echo "Executing build for branch $env.BRANCH_NAME"
@@ -21,11 +22,10 @@ pipeline {
                 }
             }
         }
-
         stage("build image") {
-            when{
+             when{
                 expression{
-                    env.BRANCH_NAME = 'master'
+                    env.BRANCH_NAME == 'master'
                 }
             }
             steps {
@@ -37,7 +37,7 @@ pipeline {
         stage("deploy") {
             when{
                 expression{
-                    env.BRANCH_NAME = 'master'
+                    env.BRANCH_NAME == 'master'
                 }
             }
             steps {
