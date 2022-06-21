@@ -26,7 +26,7 @@ pipeline {
         stage("build image") {
             steps {
                 script{
-                    buildImage() '082013/demo-app:my-app-5.5'
+                    buildImage '082013/demo-app:my-app-5.5'
                 }
             }
         }
