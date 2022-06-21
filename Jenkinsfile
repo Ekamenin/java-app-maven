@@ -1,3 +1,4 @@
+@Library('Jenkins-shared-libs')
 def gv
 
 pipeline {
@@ -18,28 +19,18 @@ pipeline {
             steps {
                 echo "Executing build for branch $env.BRANCH_NAME"
                 script{
-                  gv.buildJar()
+                  buildJar()
                 }
             }
         }
         stage("build image") {
-             when{
-                expression{
-                    env.BRANCH_NAME == 'master'
-                }
-            }
             steps {
                 script{
-                    gv.buildImage()
+                    buildImage()
                 }
             }
         }
         stage("deploy") {
-            when{
-                expression{
-                    env.BRANCH_NAME == 'master'
-                }
-            }
             steps {
                 script{
                   gv.deployApp()
